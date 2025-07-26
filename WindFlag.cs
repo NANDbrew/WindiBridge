@@ -13,7 +13,6 @@ namespace WindiBridge
         {
             base.Awake();
             cloth = GetComponent<Cloth>();
-            //rolledCloth = base.transform.parent.Find("rolled_cloth").gameObject;
             rolledCloth.SetActive(false);
             multiplier = 1f;
         }
