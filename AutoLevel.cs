@@ -5,12 +5,14 @@ namespace WindiBridge
 {
     public class AutoLevel : MonoBehaviour
     {
-        ShipItem shipItem;
-        Quaternion shopRot;
-        bool locked;
-        bool locking;
+        public ShipItem shipItem;
+        public Quaternion shopRot;
+        private bool locked;
+        private bool locking;
 
-        private void Start()
+        public bool Locked { get => locked; }
+
+        public void Start()
         {
             shipItem = transform.parent.GetComponent<ShipItem>();
             shopRot = base.transform.rotation;
@@ -46,7 +48,7 @@ namespace WindiBridge
             }
         }
 
-        public IEnumerator LockRoutine()
+        private IEnumerator LockRoutine()
         {
             locking = true;
             yield return new WaitForEndOfFrame();
@@ -55,7 +57,7 @@ namespace WindiBridge
             locked = true;
             locking = false;
         }
-        public IEnumerator ShopLockRoutine()
+        private IEnumerator ShopLockRoutine()
         {
             locking = true;
             Quaternion startRot = base.transform.rotation;
