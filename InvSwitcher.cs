@@ -5,13 +5,15 @@ namespace WindiBridge
     public class InvSwitcher : MonoBehaviour
     {
         public GameObject toSwitch;
-        private ShipItem shipItem;
-        private HangableItem hangableItem;
+        public ShipItem shipItem;
+        public HangableItem hangableItem;
+        public Anemometer anemometer;
 
         public virtual void Start()
         {
-            shipItem = GetComponent<ShipItem>();
+            shipItem = GetComponent<ShipItem>() ?? transform.parent.gameObject.GetComponent<ShipItem>();
             hangableItem = GetComponent<HangableItem>() ?? null;
+
             if (!shipItem.sold)
             {
                 toSwitch?.SetActive(false);
@@ -20,11 +22,11 @@ namespace WindiBridge
 
         public virtual void OnEnterInventory()
         {
-            //toSwitch?.SetActive(false);
+            anemometer?.OnEnterInventory();
         }
         public virtual void OnLeaveInventory()
         {
-            //toSwitch?.SetActive(true);
+            anemometer?.OnLeaveInventory();
         }
 
         public virtual void OnDrop()

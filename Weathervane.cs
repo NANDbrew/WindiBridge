@@ -17,7 +17,11 @@ namespace WindiBridge
         }
         public void Update()
         {
-            if (shadowedBy != null)
+            if (GameState.justStarted || GameState.currentlyLoading)
+            {
+                previousPosition = transform.position;
+            }
+            else if (shadowedBy != null)
             {
                 Vector3 localPos = transform.position - shadowedBy.position;
                 worldVelocity = (localPos - previousPosition) / Time.deltaTime;
@@ -25,7 +29,13 @@ namespace WindiBridge
             }
             else
             {
-                worldVelocity = (transform.position - previousPosition) / Time.deltaTime;
+                var newVelocity = (transform.position - previousPosition) / Time.deltaTime;
+                //worldVelocity = newVelocity.magnitude < 50 ? newVelocity : worldVelocity;
+                if (newVelocity.magnitude < 500)
+                {
+                    worldVelocity = newVelocity;
+                }
+
                 previousPosition = transform.position;
             }
         }
@@ -46,22 +56,22 @@ namespace WindiBridge
 
         }
 
-        public void OnTriggerEnter(Collider other)
+        public virtual void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<InteriorEffectsTrigger>() != null)
             {
                 shadowedBy = other.transform;
                 previousPosition = transform.position - shadowedBy.position;
-                Debug.Log("flag entered interior");
+                //Debug.Log("flag entered interior");
             }
         }
-        public void OnTriggerExit(Collider other)
+        public virtual void OnTriggerExit(Collider other)
         {
             if (other.GetComponent<InteriorEffectsTrigger>() != null)
             {
                 shadowedBy = null;
                 previousPosition = transform.position;
-                Debug.Log("flag exited interior");
+                //Debug.Log("flag exited interior");
             }
         }
 
