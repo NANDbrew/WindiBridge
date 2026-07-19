@@ -56,7 +56,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anemometer.cs" />
     <Compile Include="AutoLevel.cs" />
+    <Compile Include="Barometer.cs" />
+    <Compile Include="CollisionTracker.cs" />
     <Compile Include="InvSwitcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InvSwitcherWindCompass.cs" />
