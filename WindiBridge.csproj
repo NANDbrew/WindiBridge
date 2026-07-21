@@ -63,6 +63,7 @@
     <Compile Include="InvSwitcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InvSwitcherWindCompass.cs" />
+    <Compile Include="RolloverTumbler.cs" />
     <Compile Include="ShopInfo.cs" />
     <Compile Include="ShopItemSpawnerPrep.cs" />
     <Compile Include="Weathervane.cs" />
