@@ -14,18 +14,18 @@ namespace WindiBridge
             base.Awake();
             cloth = GetComponent<Cloth>();
             rolledCloth.SetActive(false);
-            multiplier = 1f;
+            responseSpeed = 1f;
         }
 
         public override void LateUpdate()
         {
             if (!shadowedBy)
             {
-                cloth.externalAcceleration = (Wind.currentWind - worldVelocity) * multiplier;
+                cloth.externalAcceleration = (Wind.currentWind - worldVelocity) * responseSpeed;
             }
             else
             {
-                cloth.externalAcceleration = -worldVelocity * multiplier;
+                cloth.externalAcceleration = -worldVelocity * responseSpeed;
             }
         }
         public void OnEnable()

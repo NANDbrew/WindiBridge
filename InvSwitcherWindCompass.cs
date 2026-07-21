@@ -12,7 +12,7 @@ namespace WindiBridge
         private bool cancel;
         public void Awake()
         {
-            indicator = this.GetComponentInChildren<WindiBridge.Weathervane>();
+            indicator = indicator ?? this.GetComponentInChildren<WindiBridge.Weathervane>();
             indicatorStartingRot = indicator.transform.localRotation;
             indicatorFoldedRot = indicatorStartingRot * Quaternion.Euler(Vector3.forward * 89f);
         }
