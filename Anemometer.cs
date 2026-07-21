@@ -73,7 +73,7 @@ namespace WindiBridge
                 float num = 360 / tumblerSides;
                 float newFace = Mathf.Min(num * Mathf.Floor(Mathf.Abs(angle / 360)), 360 - num);
                 float speedMult = num * 2 / Mathf.Abs(tumbler.localEulerAngles.z - newFace);
-                tumbler.localEulerAngles = new Vector3(0f, tumbler.localEulerAngles.y, Mathf.Lerp(tumbler.localEulerAngles.z, newFace, Time.deltaTime * Mathf.Pow(speedMult, 1.8f)));
+                tumbler.localEulerAngles = new Vector3(0f, tumbler.localEulerAngles.y, Mathf.Lerp(tumbler.localEulerAngles.z, newFace, Time.deltaTime * Mathf.Pow(speedMult, 1.5f)));
 
             }
 #if DEBUG
