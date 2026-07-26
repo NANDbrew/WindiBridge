@@ -2,7 +2,7 @@
 
 namespace WindiBridge
 {
-    internal class RolloverTumbler : MonoBehaviour
+    public class RolloverTumbler : MonoBehaviour
     {
         public int sideCount;
         public Transform sourceNeedle;
