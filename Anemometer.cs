@@ -7,8 +7,8 @@ namespace WindiBridge
     [RequireComponent(typeof(Collider))]
     public class Anemometer : Weathervane
     {
-        // magic multiplier to get chiplog knots. old value 1.94384f. (from the built-in "speedometer"/sailinfo mod. new value is emperical)
-        const float knotsConversion = 1.865f;
+        // magic multiplier to get chiplog knots. old value 1.94384f. (from the built-in "speedometer"/sailinfo mod. new value is empirical)
+        public static float knotsConversion = 1.865f;
         const float spinnerSpeed = 50f;
 
         public Transform needle;
@@ -44,9 +44,9 @@ namespace WindiBridge
 
         public override void LateUpdate()
         {
-
-            float wind = 0;
             if (GameState.wasInSettingsMenu || !GameState.playing || GameState.sleeping) return;
+            
+            float wind = 0;
             if (!shipItem.held && colTracker && colTracker.collisions > 0)
             {
                 smoothedWind = Mathf.Lerp(smoothedWind, wind, Time.deltaTime * (responseSpeed * 5));
