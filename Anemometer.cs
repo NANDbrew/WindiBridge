@@ -8,7 +8,7 @@ namespace WindiBridge
     public class Anemometer : Weathervane
     {
         // magic multiplier to get chiplog knots. old value 1.94384f. (from the built-in "speedometer"/sailinfo mod. new value is empirical)
-        public static float knotsConversion = 1.865f;
+        public static float knotsConversion = 1f;
         const float spinnerSpeed = 50f;
 
         public Transform needle;
