@@ -6,5 +6,6 @@ namespace WindiBridge
     {
         public int parentIslandIndex;
         public GameObject shopPrefab;
+        public IslandStreetlight[] lights;
     }
 }
